@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Airbnb</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+      ReactDOM.render(
+        <React.Fragment>
+          <Header />
+          <div className="container">
+            <div className="flex">
+              <Experience
+                expImg="swim.png"
+                rating={5}
+                reviewers={6}
+                country="USA"
+                title="Life lessons with Katie Zaferes"
+                price={136}
+              />
+              <Experience
+                expImg="wed.png"
+                rating={5}
+                reviewers={30}
+                country="USA"
+                title="Learn wedding photography"
+                price={125}
+              />
+              <Experience
+                expImg="bike.png"
+                rating={4.8}
+                reviewers={2}
+                country="USA"
+                title="Group Mountain Biking"
+                price={50}
+              />
+            </div>
+          </div>
+        </React.Fragment>,
+        document.getElementById("root")
+      );
+
+      function Header() {
+        return (
+          <header>
+            <div className="container">
+              <a href="#">
+                <img src="airbnb 1.png" alt="Airbnb" />
+              </a>
+            </div>
+          </header>
+        );
+      }
+
+      function Experience(props) {
+        console.log(props);
+        return (
+          <div>
+            <img src={props.expImg} className="exp-img" />
+            <br />
+            <img src="star.png" />
+            {props.rating} ({props.reviewers}) . {props.country} <br />
+            {props.title}
+            <br />
+            <b>From ${props.price}</b> / person
+          </div>
+        );
+      }
+    </script>
+  </body>
+</html>
